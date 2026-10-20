@@ -1,0 +1,10 @@
+{
+  "$schema": "https://schemas.glavo.site/hmcl/authlib-injector-server-metadata/1.0.0",
+  "servers": [
+    {
+      "url": "https://littleskin.cn/api/yggdrasil/",
+      "metadataResponse": "{\"meta\":{\"serverName\":\"LittleSkin\",\"implementationName\":\"Yggdrasil Connect\",\"implementationVersion\":\"0.0.8\",\"links\":{\"announcement\":\"https://littleskin.cn/api/announcements\",\"homepage\":\"https://littleskin.cn\",\"register\":\"https://littleskin.cn/auth/register\"},\"feature.non_email_login\":true,\"feature.enable_profile_key\":true,\"feature.enable_mojang_anti_features\":true,\"feature.openid_configuration_url\":\"https://open.littleskin.cn/.well-known/openid-configuration\"},\"skinDomains\":[\"littleskin.cn\"],\"signaturePublickey\":\"-----BEGIN PUBLIC KEY-----\\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEArGcNOOFIqLJSqoE3u0hj\\ntOEnOcET3wj9Drss1BE6sBqgPo0bMulOULhqjkc/uH/wyosYnzw3xaazJt87jTHh\\nJ8BPMxCeQMoyEdRoS3Jnj1G0Kezj4A2b61PJJM1DpvDAcqQBYsrSdpBJ+52MjoGS\\nvJoeQO5XUlJVQm21/HmJnqsPhzcA6HgY71RHYE5xnhpWJiPxLKUPtmt6CNYUQQoS\\no2v36XWgMmLBZhAbNOPxYX+1ioxKamjhLO29UhwtgY9U6PWEO7/SBfXzyRPTzhPV\\n2nHq7KJqd8IIrltslv6i/4FEM81ivS/mm+PN3hYlIYK6z6Ymii1nrQAplsJ67OGq\\nYHtWKOvpfTzOollugsRihkAG4OB6hM0Pr45jjC3TIc7eO7kOgIcGUGUQGuuugDEz\\nJ1N9FFWnN/H6P9ukFeg5SmGC5+wmUPZZCtNBLr8o8sI5H7QhK7NgwCaGFoYuiAGL\\ngz3k/3YwJ40BbwQayQ2gIqenz+XOFIAlajv+/nyfcDvZH9vGNKP9lVcHXUT5YRnS\\nZSHo5lwvVrYUrqEAbh/zDz8QMEyiujWvUkPhZs9fh6fimUGxtm8mFIPCtPJVXjeY\\nwD3Lvt3aIB1JHdUTJR3eEc4eIaTKMwMPyJRzVn5zKsitaZz3nn/cOA/wZC9oqyEU\\nmc9h6ZMRTRUEE4TtaJyg9lMCAwEAAQ\u003d\u003d\\n-----END PUBLIC KEY-----\\n\"}",
+      "metadataTimestamp": 1792506323401
+    }
+  ]
+}

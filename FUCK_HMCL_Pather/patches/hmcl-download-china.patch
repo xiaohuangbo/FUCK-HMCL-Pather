@@ -1,0 +1,146 @@
+--- a/HMCL/src/main/java/org/jackhuang/hmcl/ui/download/VersionsPage.java
++++ b/HMCL/src/main/java/org/jackhuang/hmcl/ui/download/VersionsPage.java
+@@ -456,14 +456,13 @@
+             if (RegionUtils.isIsChinaMainlandNetwork()) {
+                 BorderPane wrapper = new BorderPane();
+ 
+-                HintPane hint = new HintPane(MessageDialogPane.MessageType.WARNING);
++                HintPane hint = new HintPane(MessageDialogPane.MessageType.INFO);
+                 hint.setSegment(i18n("download.china"));
+ 
+                 BorderPane.setMargin(hint, new Insets(10, 10, 0, 10));
+ 
+                 wrapper.setTop(hint);
+ 
+-                root.setDisable(true);
+                 wrapper.setCenter(root);
+ 
+                 this.getChildren().setAll(wrapper);
+--- a/HMCL/src/main/java/org/jackhuang/hmcl/ui/instances/DownloadListPage.java
++++ b/HMCL/src/main/java/org/jackhuang/hmcl/ui/instances/DownloadListPage.java
+@@ -631,14 +631,13 @@
+             if (RegionUtils.isIsChinaMainlandNetwork()) {
+                 BorderPane wrapper = new BorderPane();
+ 
+-                HintPane hint = new HintPane(MessageDialogPane.MessageType.WARNING);
++                HintPane hint = new HintPane(MessageDialogPane.MessageType.INFO);
+                 hint.setSegment(i18n("download.china"));
+ 
+                 BorderPane.setMargin(hint, new Insets(10, 10, 0, 10));
+ 
+                 wrapper.setTop(hint);
+ 
+-                pane.setDisable(true);
+                 wrapper.setCenter(pane);
+ 
+                 this.getChildren().setAll(wrapper);
+--- a/HMCL/src/main/resources/assets/lang/I18N.properties
++++ b/HMCL/src/main/resources/assets/lang/I18N.properties
+@@ -382,7 +382,7 @@
+ datetime.format=MMM d, yyyy, h\:mm\:ss a
+ 
+ download=Download
+-download.china=Due to relevant laws and regulations, HMCL does not currently support downloading game-related content in Chinese Mainland. Please visit the <a href="https://mc.163.com/">official Minecraft website</a> to download Minecraft China Edition.
++download.china=恶意举报不是「维护秩序」，而是对开源社区和 MC 生态的严重破坏。这种行为损害的是所有玩家的利益：它让免费工具被迫收缩、让新玩家无从入门、让生态被无谓的恐惧笼罩。一颗老鼠屎，不该坏掉一整锅粥。
+ download.code.404=File "%s" not found on the remote server.
+ download.content=Addons
+ download.shader=Shaders
+--- a/HMCL/src/main/resources/assets/lang/I18N_ar.properties
++++ b/HMCL/src/main/resources/assets/lang/I18N_ar.properties
+@@ -384,7 +384,7 @@
+ datetime.format=MMM d, yyyy, h\:mm\:ss a
+ 
+ download=تنزيل
+-# download.china=
++download.china=恶意举报不是「维护秩序」，而是对开源社区和 MC 生态的严重破坏。这种行为损害的是所有玩家的利益：它让免费工具被迫收缩、让新玩家无从入门、让生态被无谓的恐惧笼罩。一颗老鼠屎，不该坏掉一整锅粥。
+ download.code.404=الملف "%s" غير موجود على الخادم البعيد.
+ download.content=الإضافات
+ download.shader=الظلال
+--- a/HMCL/src/main/resources/assets/lang/I18N_de.properties
++++ b/HMCL/src/main/resources/assets/lang/I18N_de.properties
+@@ -381,7 +381,7 @@
+ datetime.format=dd.MM.yyyy, HH\:mm\:ss
+ 
+ download=Herunterladen
+-# download.china=
++download.china=恶意举报不是「维护秩序」，而是对开源社区和 MC 生态的严重破坏。这种行为损害的是所有玩家的利益：它让免费工具被迫收缩、让新玩家无从入门、让生态被无谓的恐惧笼罩。一颗老鼠屎，不该坏掉一整锅粥。
+ download.code.404=Datei "%s" wurde nicht auf dem Remote-Server gefunden.
+ download.content=Addons
+ download.shader=Shaderpakete
+--- a/HMCL/src/main/resources/assets/lang/I18N_es.properties
++++ b/HMCL/src/main/resources/assets/lang/I18N_es.properties
+@@ -382,7 +382,7 @@
+ datetime.format=d MMM yyyy, H\:mm\:ss
+ 
+ download=Descargar
+-# download.china=
++download.china=恶意举报不是「维护秩序」，而是对开源社区和 MC 生态的严重破坏。这种行为损害的是所有玩家的利益：它让免费工具被迫收缩、让新玩家无从入门、让生态被无谓的恐惧笼罩。一颗老鼠屎，不该坏掉一整锅粥。
+ download.code.404=Archivo no encontrado en el servidor remoto: %s
+ download.content=Complementos
+ download.shader=Sombreadores
+--- a/HMCL/src/main/resources/assets/lang/I18N_ja.properties
++++ b/HMCL/src/main/resources/assets/lang/I18N_ja.properties
+@@ -370,7 +370,7 @@
+ datetime.format=yyyy/MM/dd H:mm:ss
+ 
+ download=ダウンロード
+-# download.china=
++download.china=恶意举报不是「维护秩序」，而是对开源社区和 MC 生态的严重破坏。这种行为损害的是所有玩家的利益：它让免费工具被迫收缩、让新玩家无从入门、让生态被无谓的恐惧笼罩。一颗老鼠屎，不该坏掉一整锅粥。
+ download.code.404=リモートサーバーにファイルが見つかりません：%s
+ download.content=ゲームコンテンツ
+ download.shader=シェーダー
+--- a/HMCL/src/main/resources/assets/lang/I18N_lzh.properties
++++ b/HMCL/src/main/resources/assets/lang/I18N_lzh.properties
+@@ -381,7 +381,7 @@
+ datetime.format=yyyy 年 MM 月 dd 日 HH:mm:ss
+ 
+ download=引
+-# download.china=
++download.china=恶意举报不是「维护秩序」，而是对开源社区和 MC 生态的严重破坏。这种行为损害的是所有玩家的利益：它让免费工具被迫收缩、让新玩家无从入门、让生态被无谓的恐惧笼罩。一颗老鼠屎，不该坏掉一整锅粥。
+ download.code.404=伺服器無案曰：%s\n君可求助於右上之鈕。
+ download.content=戲案
+ download.shader=光影
+--- a/HMCL/src/main/resources/assets/lang/I18N_ru.properties
++++ b/HMCL/src/main/resources/assets/lang/I18N_ru.properties
+@@ -378,7 +378,7 @@
+ datetime.format=d MMM yyyy г., HH\:mm\:ss
+ 
+ download=Скачать
+-# download.china=
++download.china=恶意举报不是「维护秩序」，而是对开源社区和 MC 生态的严重破坏。这种行为损害的是所有玩家的利益：它让免费工具被迫收缩、让新玩家无从入门、让生态被无谓的恐惧笼罩。一颗老鼠屎，不该坏掉一整锅粥。
+ download.code.404=Файл «%s» не найден на удаленном сервере.
+ download.content=Аддоны
+ download.shader=Шейдеры
+--- a/HMCL/src/main/resources/assets/lang/I18N_uk.properties
++++ b/HMCL/src/main/resources/assets/lang/I18N_uk.properties
+@@ -378,7 +378,7 @@
+ datetime.format=dd.MM.yyyy, HH:mm:ss
+ 
+ download=Завантажити
+-# download.china=
++download.china=恶意举报不是「维护秩序」，而是对开源社区和 MC 生态的严重破坏。这种行为损害的是所有玩家的利益：它让免费工具被迫收缩、让新玩家无从入门、让生态被无谓的恐惧笼罩。一颗老鼠屎，不该坏掉一整锅粥。
+ download.code.404=Файл "%s" не знайдено на віддаленому сервері.
+ download.content=Додатки
+ download.shader=Шейдери
+--- a/HMCL/src/main/resources/assets/lang/I18N_zh_Hans.properties
++++ b/HMCL/src/main/resources/assets/lang/I18N_zh_Hans.properties
+@@ -382,7 +382,7 @@
+ datetime.format=yyyy 年 MM 月 dd 日 HH:mm:ss
+ 
+ download=下载
+-download.china=根据相关法律法规，HMCL 在中国大陆地区暂不支持下载游戏相关内容。请前往<a href="https://mc.163.com/">我的世界官方网站</a>下载我的世界中国版。
++download.china=恶意举报不是「维护秩序」，而是对开源社区和 MC 生态的严重破坏。这种行为损害的是所有玩家的利益：它让免费工具被迫收缩、让新玩家无从入门、让生态被无谓的恐惧笼罩。一颗老鼠屎，不该坏掉一整锅粥。
+ download.code.404=远程服务器不包含需要下载的文件: %s\n你可以点击右上角帮助按钮进行求助。
+ download.content=游戏内容
+ download.shader=光影
+--- a/HMCL/src/main/resources/assets/lang/I18N_zh_Hant.properties
++++ b/HMCL/src/main/resources/assets/lang/I18N_zh_Hant.properties
+@@ -380,7 +380,7 @@
+ datetime.format=yyyy 年 MM 月 dd 日 HH:mm:ss
+ 
+ download=下載
+-download.china=根據相關法律法規，HMCL 在中國大陸地區暫不支援下載遊戲相關內容。請前往<a href="https://mc.163.com/">我的世界官方網站</a>下載我的世界中國版。
++download.china=恶意举报不是「维护秩序」，而是对开源社区和 MC 生态的严重破坏。这种行为损害的是所有玩家的利益：它让免费工具被迫收缩、让新玩家无从入门、让生态被无谓的恐惧笼罩。一颗老鼠屎，不该坏掉一整锅粥。
+ download.code.404=遠端伺服器沒有需要下載的檔案：%s
+ download.content=遊戲內容
+ download.shader=光影

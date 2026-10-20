@@ -1,0 +1,8 @@
+{
+  "$schema": "https://schemas.glavo.site/hmcl/authlib-injector-servers/1.0.0",
+  "servers": [
+    {
+      "url": "https://littleskin.cn/api/yggdrasil/"
+    }
+  ]
+}

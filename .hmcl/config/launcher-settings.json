@@ -1,0 +1,5 @@
+{
+  "$schema": "https://schemas.glavo.site/hmcl/launcher-settings/1.0.0",
+  "selectedGameDirectory": "game-directory:7105bc1f-490e-5e8c-878c-f5844c3d4bc3",
+  "defaultGameSettingsPreset": "game-settings-preset:01a15975-de02-72f7-8ae4-3509cc20e46d"
+}

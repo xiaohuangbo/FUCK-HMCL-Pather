@@ -1,0 +1,94 @@
+我想要你做一个补丁，将HMCL的“在中国大陆地区禁用游戏下载功能”的黄色警告去除，并改为：“恶意举报不是「维护秩序」，而是对开源社区和 MC 生态的严重破坏。这种行为损害的是所有玩家的利益：它让免费工具被迫收缩、让新玩家无从入门、让生态被无谓的恐惧笼罩。一颗老鼠屎，不该坏掉一整锅粥。”
+并去除无法下载的本地限制，这是开源项目，源码在/home/xiaohuangbo/workspace/fuckPCL/HMCL-main/里，编译好的文件是。jar/.sh/.exe补丁要一个.sh格式一个.exe格式，本项目名字是FUCK_HMCL_Pather
+以下是情报;
+**这个 PR（#7017）的核心改动是：在判定为“中国大陆”环境时，禁用游戏版本下载相关功能（显示提示并灰掉界面），同时把原来的 `LocaleUtils.IS_CHINA_MAINLAND` 替换成更完善的 `RegionUtils` 区域判断逻辑。**
+
+### PR 主要变更内容
+
+标题：`在中国大陆地区禁用游戏下载功能`（作者 Glavo，已合并到 main）。
+
+主要改动点：
+
+1. **新增 `RegionUtils` 工具类**
+   专门负责判断是否是“中国大陆机器”和“中国大陆网络”。
+
+2. **在游戏版本下载相关页面禁用下载**
+   - `VersionsPage`（版本列表页）
+   - `DownloadListPage`（模组/资源下载列表）
+   当判定为大陆网络时：
+   - 顶部显示警告提示（文案 key：`download.china`）
+   - 将整个下载区域设为 `setDisable(true)`（灰掉，无法操作）
+
+3. **把原有的 `LocaleUtils.IS_CHINA_MAINLAND` 全部替换为 `RegionUtils` 的新方法**
+   涉及文件包括：
+   - `HMCLDownloadProvider`（下载源候选逻辑）
+   - `TerracottaMetadata` / `TerracottaNodeList`
+   - `AccountListPage`（离线账号限制）
+   - 以及其他使用旧常量的地方
+
+4. **启动时预检查**
+   在 `Launcher.java` 里调用 `RegionUtils.init()`，如果机器判定为大陆，会异步去查一次网络状态，避免阻塞 UI。
+
+5. **多语言提示文案**
+   在各语言的 `I18N_*.properties` 中增加了对应的 `download.china` 提示文本。
+
+PR 本身没有写详细 description，但从 commit 信息和代码可以看出，目的是“遵循相关法律法规”，在大陆地区禁用游戏下载功能。
+
+---
+
+### `LocaleUtils.IS_CHINA_MAINLAND` 是如何判定的？
+
+**这个常量在本 PR 中已经被移除/替换了**，原来的判断逻辑比较简单，现在被更复杂的 `RegionUtils` 取代。
+
+#### 旧的 `LocaleUtils.IS_CHINA_MAINLAND`（已被替换）
+从 PR 的 diff 可以看出，它之前被直接用于各种地方，但具体实现比较粗糙（主要依赖系统 Locale / 时区等信息）。本 PR 把它彻底换成了 `RegionUtils`。
+
+#### 现在的判定逻辑（`RegionUtils`）
+
+分两层：
+
+**1. 机器是否在中国大陆（`IS_CHINA_MAINLAND_MACHINE` / `isIsChinaMainlandMachine()`）**
+
+静态初始化时执行 `checkMachineIsChinaMainland()`：
+
+```java
+if ("Asia/Shanghai".equals(ZoneId.systemDefault().getId()))
+    return true;
+
+// 时区是 UTC+8
+if (ZonedDateTime.now().getOffset().getTotalSeconds() == Duration.ofHours(8).toSeconds()) {
+    if ("CN".equals(LocaleUtils.SYSTEM_DEFAULT.getCountry()))
+        return true;
+
+    // Windows + 使用 JNA 时
+    if (Windows && GetUserGeoID(GEOCLASS_NATION) == 45)  // 45 = China
+        return true;
+}
+
+return false;
+```
+
+也就是说，满足以下任一条件就认为是“大陆机器”：
+- 系统时区是 `Asia/Shanghai`
+- 时区偏移是 UTC+8 **并且** 系统国家是 `CN`
+- Windows 下通过 `GetUserGeoID` 拿到地理区域 ID 为 45（中国）
+
+**2. 网络是否在中国大陆（`isIsChinaMainlandNetwork()`）**
+
+只有机器先被判定为大陆时，才会进一步检查网络：
+
+- 请求 `https://ipwho.is`
+- 解析返回的 `country_code`
+- 如果请求失败 **或** `country_code` 是 `CN`，则返回 `true`（视为大陆网络）
+- 结果会缓存（`volatile Boolean`）
+
+下载页面真正禁用功能时，用的是 `isIsChinaMainlandNetwork()`（机器 + 网络双重判断）。
+
+---
+
+### 补充说明
+
+- 机器判断比较宽松（时区 + 国家/地理 ID），网络判断会真正去查 IP 归属。
+- 有用户在讨论中提到可以通过改时区/系统区域（比如设成新加坡）绕过机器判断。
+- 下载禁用只影响启动器内的游戏版本下载界面，其他功能（正版登录、启动已有版本等）不受影响。
+

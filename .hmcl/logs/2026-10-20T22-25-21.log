@@ -1,0 +1,72 @@
+[22:25:22] [@.util.SelfDependencyPatcher.patch/INFO] Missing JavaFX dependencies, attempting to patch in missing classes
+[22:25:22] [@.util.SelfDependencyPatcher.loadFromCache/INFO]  - Loading dependencies...
+[22:25:22] [@.util.SelfDependencyPatcher.patch/INFO]  - Done!
+[22:25:22] [@.Launcher.main/INFO] *** HMCL 3.17.dev-583e004 ***
+[22:25:22] [@.Launcher.main/INFO] Operating System: CatOS (Linux 7.2.11-zen1-1-zen)
+[22:25:22] [@.Launcher.main/INFO] System Architecture: x86-64
+[22:25:22] [@.Launcher.main/INFO] Native Encoding: UTF-8
+[22:25:22] [@.Launcher.main/INFO] JNU Encoding: UTF-8
+[22:25:22] [@.Launcher.main/INFO] Java Architecture: x86-64
+[22:25:22] [@.Launcher.main/INFO] Java Version: 27, Arch Linux
+[22:25:22] [@.Launcher.main/INFO] Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Arch Linux
+[22:25:22] [@.Launcher.main/INFO] Java Home: /usr/lib/jvm/java-27-openjdk
+[22:25:22] [@.Launcher.main/INFO] Current Directory: /home/xiaohuangbo/workspace/fuckPCL
+[22:25:22] [@.Launcher.main/INFO] HMCL User Home: /home/xiaohuangbo/.local/share/hmcl
+[22:25:22] [@.Launcher.main/INFO] HMCL Local Home: /home/xiaohuangbo/workspace/fuckPCL/.hmcl
+[22:25:22] [@.Launcher.main/INFO] HMCL Jar Path: /home/xiaohuangbo/workspace/fuckPCL/HMCL-3.17.dev-583e004-pathed.jar
+[22:25:22] [@.Launcher.main/INFO] HMCL Log File: /home/xiaohuangbo/workspace/fuckPCL/.hmcl/logs/2026-10-20T22-25-21.log
+[22:25:22] [@.Launcher.main/INFO] JVM Max Memory: 7900 MiB
+[22:25:22] [@.Launcher.main/INFO] Metaspace: 6.26 MiB
+[22:25:22] [@.Launcher.main/INFO] Native Backend: None
+[22:25:22] [@.Launcher.main/INFO] XDG Session Type: wayland
+[22:25:22] [@.Launcher.main/INFO] XDG Current Desktop: KDE
+[22:25:22] [@.Launcher.main/INFO] Administrator User: false
+[22:25:22] [@.Launcher.main/INFO] Zlib Compatible: true
+[22:25:22] [@.util.platform.SystemInfo.initialize/INFO] System Info:
+ - CPU: Intel Core Ultra X7 358H (16 Cores)
+ - GPU: Intel Arc B390 [Integrated]
+ - Memory: 6.87 GiB / 30.86 GiB (22%)
+[22:25:22] [@.Launcher.setupJavaFXVMOptions/INFO] Detected Xft.dpi: 129.0 (1.3x)
+[22:25:22] [@.Launcher.start/INFO] JavaFX Version: 25+29
+[22:25:22] [@.Launcher.start/INFO] Prism Pipeline: com.sun.prism.es2.ES2Pipeline
+[22:25:22] [@.Launcher.start/INFO] Dark Mode: true
+[22:25:22] [@.Launcher.start/INFO] Reduced Motion: false
+[22:25:22] [@.Launcher.start/INFO] Screens:
+ - Screen 1: 2356x1473 @ 1.34x 130dpi in 16" (1429, 0, 3182, 1096)
+ - Screen 2: 1919x1079 @ 1.34x 105dpi in 16" (0, 631, 1428, 1434)
+[22:25:22] [@.task.AsyncTaskExecutor.lambda$executeNormalTask$20/TRACE] Executing task: org.jackhuang.hmcl.game.GameRepository.refreshAsync(GameRepository.java:111)
+[22:25:22] [@.task.AsyncTaskExecutor.lambda$executeNormalTask$30/TRACE] Task finished: org.jackhuang.hmcl.game.GameRepository.refreshAsync(GameRepository.java:111)
+[22:25:22] [@.ui.Controllers.initialize/INFO] Start initializing application
+[22:25:22] [@.ui.Controllers.initialize/INFO] April Fools: false
+[22:25:22] [@.util.FileSaver.saveSync/INFO] Saving file /home/xiaohuangbo/workspace/fuckPCL/.hmcl/config/launcher-settings.json
+[22:25:22] [@.java.JavaManager.searchPotentialJavaExecutables/TRACE] Finished Java lookup, found 3
+ - JDK 21.0.12.1 (x86-64, Arch Linux): /usr/lib/jvm/java-21-openjdk/bin/java
+ - JDK 25.0.4.1 (x86-64, Arch Linux): /usr/lib/jvm/java-25-openjdk/bin/java
+ - JDK 27 (x86-64, Arch Linux): /usr/lib/jvm/java-27-openjdk/bin/java
+[22:25:22] [@.setting.FontManager.findByFcMatch/INFO] Load font file: /usr/share/fonts/wenquanyi/wqy-zenhei/wqy-zenhei.ttc
+[22:25:22] [@.setting.FontManager.<clinit>/INFO] Font: WenQuanYi Zen Hei
+[22:25:22] [@.util.RegionUtils.checkChinaMainlandNetwork/INFO] Fetching network information
+[22:25:22] [@.upgrade.IntegrityChecker.isSelfVerified/WARNING] Failed to verify myself, is the JAR corrupt?
+java.io.IOException: Signature is missing
+	at org.jackhuang.hmcl.upgrade.IntegrityChecker.verifyJar(IntegrityChecker.java:89)
+	at org.jackhuang.hmcl.upgrade.IntegrityChecker.isSelfVerified(IntegrityChecker.java:130)
+	at org.jackhuang.hmcl.upgrade.UpdateChecker.checkUpdate(UpdateChecker.java:93)
+	at org.jackhuang.hmcl.upgrade.UpdateChecker.lambda$requestCheckUpdate$2(UpdateChecker.java:120)
+	at java.base/java.lang.Thread.run(Thread.java:1527)
+[22:25:22] [@.upgrade.UpdateChecker.lambda$requestCheckUpdate$2/WARNING] Failed to check for update
+org.jackhuang.hmcl.upgrade.SelfVerificationException: Self verification failed
+	at org.jackhuang.hmcl.upgrade.UpdateChecker.checkUpdate(UpdateChecker.java:94)
+	at org.jackhuang.hmcl.upgrade.UpdateChecker.lambda$requestCheckUpdate$2(UpdateChecker.java:120)
+	at java.base/java.lang.Thread.run(Thread.java:1527)
+[22:25:23] [@.auth.authlibinjector.AuthlibInjectorServer.refreshMetadata/INFO] authlib-injector server metadata refreshed: https://littleskin.cn/api/yggdrasil/
+[22:25:23] [@.util.FileSaver.saveSync/INFO] Saving file /home/xiaohuangbo/workspace/fuckPCL/.hmcl/cache/authlib-injector-server-metadata.json
+[22:25:23] [@.ui.Controllers.prepareDownloadPage/INFO] Prepare the download page
+[22:25:23] [@.task.AsyncTaskExecutor.lambda$executeNormalTask$20/TRACE] Executing task: org.jackhuang.hmcl.ui.download.VersionsPage.load(VersionsPage.java:115)
+[22:25:23] [@.task.AsyncTaskExecutor.lambda$executeNormalTask$20/TRACE] Executing task: org.jackhuang.hmcl.download.DownloadProvider.getVersionsAsync(DownloadProvider.java:93)
+[22:25:23] [@.task.AsyncTaskExecutor.lambda$executeNormalTask$20/TRACE] Executing task: org.jackhuang.hmcl.download.game.GameRemoteVersion.fetchAsync(GameRemoteVersion.java:51)
+[22:25:23] [@.task.AsyncTaskExecutor.lambda$executeNormalTask$20/TRACE] Executing task: https://piston-meta.mojang.com/mc/game/version_manifest.json
+[22:25:24] [@.ui.construct.Navigator.navigate/INFO] Navigate to DownloadPage@61df6a78[styleClass=root gray-background]
+[22:25:24] [@.task.AsyncTaskExecutor.lambda$executeNormalTask$30/TRACE] Task finished: https://piston-meta.mojang.com/mc/game/version_manifest.json
+[22:25:24] [@.task.AsyncTaskExecutor.lambda$executeNormalTask$30/TRACE] Task finished: org.jackhuang.hmcl.download.game.GameRemoteVersion.fetchAsync(GameRemoteVersion.java:51)
+[22:25:24] [@.task.AsyncTaskExecutor.lambda$executeNormalTask$30/TRACE] Task finished: org.jackhuang.hmcl.download.DownloadProvider.getVersionsAsync(DownloadProvider.java:93)
+[22:25:24] [@.task.AsyncTaskExecutor.lambda$executeNormalTask$30/TRACE] Task finished: org.jackhuang.hmcl.ui.download.VersionsPage.load(VersionsPage.java:115)
