@@ -12,7 +12,7 @@
 <p align="center">
   <img alt="Platform" src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-blue?style=flat-square">
   <img alt="Java" src="https://img.shields.io/badge/Java-17%2B-orange?style=flat-square">
-  <img alt="HMCL" src="https://img.shields.io/badge/HMCL-3.17.dev--583e004-purple?style=flat-square">
+  <img alt="HMCL" src="https://img.shields.io/badge/HMCL-3.17.dev--583e004以上版本-purple?style=flat-square">
   <img alt="License" src="https://img.shields.io/badge/license-GPLv3-green?style=flat-square">
 </p>
 
@@ -223,12 +223,13 @@ HMCL 的 Windows 可执行文件由两部分组成：
 ### 已验证版本
 
 - HMCL `3.17.dev-583e004`
+- HMCL `3.17.0.362`
 - class 文件版本：Java 17（classfile version 61）
 - Windows exe 启动器长度：454144 字节
 
 ### 其他版本
 
-当前替换类是按 `3.17.dev-583e004` 编译的。如果 HMCL 后续版本修改了下载页面结构，补丁会先检测，然后安全地报错，不会写出损坏的文件。
+当前替换类是按 `3.17.dev-583e004` 编译的，经测试已支持 `3.17.0.362` 。如果 HMCL 后续版本修改了下载页面结构，补丁会先检测，然后安全地报错，不会写出损坏的文件。
 
 如果 HMCL 更新后需要适配，可以使用 `FUCK_HMCL_Pather/patches/hmcl-download-china.patch` 作为源码参考，并重新生成 `go/payload/` 中的替换类。
 
