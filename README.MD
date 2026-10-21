@@ -343,11 +343,16 @@ FUCK_HMCL_Pather.exe "HMCL-3.17.dev-583e004.exe"
 
 ## 免责声明
 
-- 本项目是第三方补丁，不是 HMCL 官方项目。
+- 本项目是第三方补丁，不是 HMCL 官方项目。补丁按现状提供，不保证兼容性或可用性
 - HMCL 是 [HMCL-dev/HMCL](https://github.com/HMCL-dev/HMCL) 的开源项目；请勿将本工具相关的问题反馈给 HMCL 官方。
 - 本工具只解除 HMCL 界面层面对下载功能的禁用，不绕过任何网络、账号或版权限制。
 - 请支持正版游戏，并遵守所在地法律法规。
 - 使用本工具产生的风险由使用者自行承担。
+
+
+## 相关项目
+
+[PCL-Re.Download_PATCH](https://github.com/Jelly10086/PCL-Re.Download_PATCH/tree/main)
 
 ## 许可证
 
