@@ -352,7 +352,11 @@ FUCK_HMCL_Pather.exe "HMCL-3.17.dev-583e004.exe"
 
 ## 相关项目
 
-[PCL-Re.Download_PATCH](https://github.com/Jelly10086/PCL-Re.Download_PATCH/tree/main)
+- [PCL-Re.Download_PATCH](https://github.com/Jelly10086/PCL-Re.Download_PATCH/tree/main)
+（很遗憾这个项目不支持Linux）
+
+- [HKRegionHook](https://github.com/CubeSkyForked/pcl-hmcl-country-bypass)
+（很遗憾这个项目也不支持Linux）
 
 ## 许可证
 
