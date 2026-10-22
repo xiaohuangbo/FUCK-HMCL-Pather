@@ -10,16 +10,20 @@
 
 > 恶意举报不是「维护秩序」，而是对开源社区和 MC 生态的严重破坏。这种行为损害的是所有玩家的利益：它让免费工具被迫收缩、让新玩家无从入门、让生态被无谓的恐惧笼罩。一颗老鼠屎，不该坏掉一整锅粥。
 
-补丁同时支持两种 HMCL 发布形式：
+补丁同时支持四种 HMCL 发布形式：
 
 - `HMCL-*.jar`
 - `HMCL-*.exe`（PE 启动器 + 尾部内嵌 jar，补丁会保留启动器并只替换内嵌部分）
+- `HMCL-*.sh`（shell 脚本头 + 尾部内嵌 jar，补丁会保留脚本头）
+- `HMCL-*.deb`（Debian ar 容器，补丁会保留其他成员并只重建 `data.tar.gz` 中的 HMCL `.sh`）
 
 补丁不会改动源文件。打补丁后会生成一个新文件，命名规则为：
 
 ```text
 HMCL-3.17.dev-583e004.jar  ->  HMCL-3.17.dev-583e004-pathed.jar
 HMCL-3.17.dev-583e004.exe  ->  HMCL-3.17.dev-583e004-pathed.exe
+HMCL-3.17.dev-583e004.sh   ->  HMCL-3.17.dev-583e004-pathed.sh
+HMCL-3.17.dev-583e004.deb  ->  HMCL-3.17.dev-583e004-pathed.deb
 ```
 
 ## 文件说明
@@ -34,7 +38,7 @@ HMCL-3.17.dev-583e004.exe  ->  HMCL-3.17.dev-583e004-pathed.exe
 
 ## 使用方法
 
-先关闭 HMCL，然后对 HMCL 的 jar 或 exe 执行补丁。
+先关闭 HMCL，然后对 HMCL 的 jar、exe、sh 或 deb 执行补丁。
 
 ### Linux / macOS
 
@@ -43,19 +47,21 @@ chmod +x FUCK_HMCL_Pather.sh
 ./FUCK_HMCL_Pather.sh /path/to/HMCL-3.17.dev-583e004.jar
 ```
 
-也可以直接指定 exe：
+也可以直接指定 exe、Linux 自解压脚本或 Debian 包：
 
 ```sh
 ./FUCK_HMCL_Pather.sh /path/to/HMCL-3.17.dev-583e004.exe
+./FUCK_HMCL_Pather.sh /path/to/HMCL-3.17.dev-583e004.sh
+./FUCK_HMCL_Pather.sh /path/to/HMCL-3.17.dev-583e004.deb
 ```
 
-把脚本放在 HMCL 文件旁边，直接运行；脚本会自动寻找 `HMCL*.jar` 和 `HMCL*.exe`，并分别处理最新的一个：
+把脚本放在 HMCL 文件旁边，直接运行；脚本会自动寻找 `HMCL*.jar`、`HMCL*.exe`、`HMCL*.sh` 和 `HMCL*.deb`，并分别处理最新的一个：
 
 ```sh
 ./FUCK_HMCL_Pather.sh
 ```
 
-运行后会生成 `*-pathed.jar` / `*-pathed.exe`，原文件保持不变。
+运行后会生成 `*-pathed.jar` / `*-pathed.exe` / `*-pathed.sh` / `*-pathed.deb`，原文件保持不变。
 
 ### Windows
 
@@ -69,13 +75,15 @@ FUCK_HMCL_Pather.exe "D:\Games\HMCL-3.17.dev-583e004.exe"
 FUCK_HMCL_Pather.exe "D:\Games\HMCL-3.17.dev-583e004.jar"
 ```
 
-不指定文件时，会同时处理程序所在目录中最新的一份 `HMCL*.jar` 和一份 `HMCL*.exe`。
+原生补丁同样接受 `.sh` / `.deb`；不指定文件时，会同时处理程序所在目录中最新的一份 `HMCL*.jar`、`HMCL*.exe`、`HMCL*.sh` 和 `HMCL*.deb`。
 
 ### 使用 Java 补丁程序
 
 ```sh
 java -jar FUCK_HMCL_Pather.jar /path/to/HMCL.jar
 java -jar FUCK_HMCL_Pather.jar /path/to/HMCL.exe
+java -jar FUCK_HMCL_Pather.jar /path/to/HMCL.sh
+java -jar FUCK_HMCL_Pather.jar /path/to/HMCL.deb
 ```
 
 ## 还原 / 删除产物
@@ -90,9 +98,9 @@ java -jar FUCK_HMCL_Pather.jar /path/to/HMCL.exe
 FUCK_HMCL_Pather.exe --restore "D:\Games\HMCL-3.17.dev-583e004.exe"
 ```
 
-`--restore` 会删除对应的 `*-pathed.jar` / `*-pathed.exe`。为了兼容早期“原地修改”版本，如果发现 `.fuck_hmcl_pather.bak`，也会顺带把源文件还原。
+`--restore` 会删除对应的 `*-pathed.jar` / `*-pathed.exe` / `*-pathed.sh` / `*-pathed.deb`。为了兼容早期“原地修改”版本，如果发现 `.fuck_hmcl_pather.bak`，也会顺带把源文件还原。
 
-不指定文件时，会处理自动找到的所有 HMCL jar/exe。
+不指定文件时，会处理自动找到的所有 HMCL jar/exe/sh/deb。
 
 ## 补丁原理
 
@@ -108,7 +116,9 @@ FUCK_HMCL_Pather.exe --restore "D:\Games\HMCL-3.17.dev-583e004.exe"
   - 把 `download.china=` 的内容替换为上面的社区声明
 - 写入标记文件 `META-INF/FUCK_HMCL_PATHER.txt`，用于识别「已经打过补丁」
 
-对于 `HMCL-*.exe`，补丁会解析 zip 结束记录，计算出 PE 启动器的长度（本版本为 454144 字节），原样保留启动器，只重建尾部内嵌的 jar。因此补丁后的 exe 仍然由原来的 HMCL 启动器启动。
+对于 `HMCL-*.exe` 和 `HMCL-*.sh`，补丁会解析 zip 结束记录，动态计算出前置数据的长度（Windows exe 本版本为 454144 字节，Linux `.sh` 本版本为 6125 字节），原样保留启动器或脚本头，只重建尾部内嵌的 jar。
+
+对于 `HMCL-*.deb`，补丁会遍历 Debian ar 容器中的成员，原样保留 `debian-binary` 和 `control.tar.gz`，只解压并重建 `data.tar.gz`。在内层 tar 中按文件名找到 `usr/share/java/hmcl/HMCL-*.sh`，对它执行与上面相同的 jar 替换，并保持文件权限、时间戳和目录结构。如果未来的包改用 `data.tar.xz` 等格式，补丁会明确报错，不会生成损坏的文件。
 
 地区检测本身仍然保留，只影响提示是否出现；下载功能不再被禁用。登录、启动已有版本、模组管理等功能不受影响。
 
@@ -123,7 +133,7 @@ FUCK_HMCL_Pather.exe --restore "D:\Games\HMCL-3.17.dev-583e004.exe"
 
 ## 从源码构建
 
-需要 JDK 17+ 和 Go 1.23+：
+需要 JDK 17+ 和 Go 1.23+（没有 Go 时会跳过 Windows 原生 exe）：
 
 ```sh
 ./build.sh

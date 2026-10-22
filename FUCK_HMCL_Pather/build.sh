@@ -5,7 +5,7 @@ set -eu
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 cd "$ROOT"
 
-VERSION=1.0.0
+VERSION=1.1.0
 BUILD="$ROOT/build"
 DIST="$ROOT/dist"
 GO=${GO:-go}
@@ -84,12 +84,16 @@ chmod +x "$DIST/FUCK_HMCL_Pather.sh"
 echo "      -> dist/FUCK_HMCL_Pather.sh"
 
 echo "[3/4] 编译 Windows 原生 .exe..."
-(
-    cd "$ROOT/go"
-    CGO_ENABLED=0 GOOS=windows GOARCH=amd64 "$GO" build \
-        -trimpath -ldflags "-s -w" -o "$DIST/FUCK_HMCL_Pather.exe" .
-)
-echo "      -> dist/FUCK_HMCL_Pather.exe"
+if command -v "$GO" >/dev/null 2>&1; then
+    (
+        cd "$ROOT/go"
+        CGO_ENABLED=0 GOOS=windows GOARCH=amd64 "$GO" build \
+            -trimpath -ldflags "-s -w" -o "$DIST/FUCK_HMCL_Pather.exe" .
+    )
+    echo "      -> dist/FUCK_HMCL_Pather.exe"
+else
+    echo "      跳过：找不到 Go（$GO），保留 dist/FUCK_HMCL_Pather.exe 的现有版本。"
+fi
 
 echo "[4/4] 完成。"
 ls -lh "$DIST"
