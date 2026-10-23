@@ -380,11 +380,10 @@ FUCK_HMCL_Pather.exe "HMCL-3.17.dev-583e004.exe"
 ## 相关项目
 
 - [PCL-Re.Download_PATCH](https://github.com/Jelly10086/PCL-Re.Download_PATCH/tree/main)
-（很遗憾这个项目不支持Linux）
+（与本项目的原理区别：本项目更改的是UI类的二进制补丁改的是class类，这个项目改的是静态 IL/字节码补丁使用 Mono.Cecil 分析并修改 .NET 程序集（PCL）或相关逻辑。更广泛但依赖Windows系统，不支持其它系统。）
 
 - [HKRegionHook](https://github.com/CubeSkyForked/pcl-hmcl-country-bypass)
-（很遗憾这个项目也不支持Linux）
-
+（与本项目的原理区别：通过运行时注入 + API Hook + 动态分析骗启动器“你现在在香港”，并且在运行时动态改判定逻辑。）
 ## 许可证
 
 本项目以 **GPLv3** 发布。`go/payload/` 中的替换类派生自 HMCL，同样遵循 GPLv3。
