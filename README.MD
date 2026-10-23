@@ -382,6 +382,8 @@ FUCK_HMCL_Pather.exe "HMCL-3.17.dev-583e004.exe"
 - [PCL-Re.Download_PATCH](https://github.com/Jelly10086/PCL-Re.Download_PATCH/tree/main)
 （与本项目的原理区别：本项目更改的是UI类的二进制补丁JAVA的class类，这个项目改的是静态 IL/字节码补丁使用 Mono.Cecil 分析并修改 .NET 程序集（PCL）或相关逻辑。支持多种启动器但依赖Windows系统，不支持其它系统。）
 
+- [UnblockMCDownload](https://github.com/TianMengLucky/UnblockMCDownload) （与本项目的原理区别：该项目由Rust+GPUI实现，思路和PCL-Re.Download_PATCH高度相似，依赖Windows系统且仅支持exe，但拥有GUI页面和工具自动更新等功能）
+
 - [HKRegionHook](https://github.com/CubeSkyForked/pcl-hmcl-country-bypass)
 （与本项目的原理区别：通过运行时注入 + API Hook + 动态分析骗启动器“你现在在香港”，并且在运行时动态改判定逻辑。）
 ## 许可证
